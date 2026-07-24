@@ -1,0 +1,134 @@
+namespace = mt_french_missions
+
+mt_french_missions.1 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = mt_french_missions.1.t
+	desc = mt_french_missions.1.d
+	flavor = mt_french_missions.1.f
+
+	option = {
+		name = mt_french_missions.1.a
+		default_option = yes
+	}
+}
+
+mt_french_missions.2 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	title = mt_french_missions.2.t
+	desc = mt_french_missions.2.d
+	flavor = mt_french_missions.2.f
+
+	option = {
+		name = mt_french_missions.2.a
+		default_option = yes
+	}
+}
+
+mt_french_missions.3 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = mt_french_missions.3.t
+	desc = mt_french_missions.3.d
+	flavor = mt_french_missions.3.f
+
+	option = {
+		name = mt_french_missions.3.a
+		default_option = yes
+	}
+}
+
+mt_french_missions.4 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = mt_french_missions.4.t
+	desc = mt_french_missions.4.d
+	flavor = mt_french_missions.4.f
+
+	option = {
+		name = mt_french_missions.4.a
+		default_option = yes
+	}
+}
+
+mt_french_missions.5 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	title = mt_french_missions.5.t
+	desc = mt_french_missions.5.d
+	flavor = mt_french_missions.5.f
+
+	option = {
+		name = mt_french_missions.5.a
+		default_option = yes
+	}
+}
+
+mt_french_missions.6 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	title = mt_french_missions.6.t
+	desc = mt_french_missions.6.d
+	flavor = mt_french_missions.6.f
+
+	option = {
+		name = mt_french_missions.6.a
+		default_option = yes
+		custom_tooltip = legitimist_progress_increase_40_tt
+		je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = 40 } }
+		ig:ig_devout ?= { add_modifier = { name = mt_fra_devout_legitimist_favor days = long_modifier_time } }
+	}
+	option = {
+		name = mt_french_missions.6.b
+		custom_tooltip = legitimist_progress_increase_10_tt
+		je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = 10 } }
+	}
+	option = {
+		name = mt_french_missions.6.c
+		custom_tooltip = mt_fra_legitimist_progress_decrease_40_tt
+		je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = -40 } }
+		ig:ig_devout ?= { add_modifier = { name = mt_fra_devout_legitimist_displeasure days = long_modifier_time } }
+		if = {
+			limit = { any_political_movement = { is_political_movement_type = movement_legitimist } }
+			random_political_movement = {
+				limit = { is_political_movement_type = movement_legitimist }
+				add_modifier = { name = mt_fra_legitimist_secular_setback days = long_modifier_time }
+			}
+		}
+	}
+}
+
+mt_french_missions.7 = {
+	type = country_event
+	placement = ROOT
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = mt_french_missions.7.t
+	desc = mt_french_missions.7.d
+	flavor = mt_french_missions.7.f
+
+	option = {
+		name = mt_french_missions.7.a
+		default_option = yes
+		set_variable = mt_fra_unlock_isolate_legitimists_decision
+		custom_tooltip = mt_fra_unlock_isolate_legitimists_tt
+	}
+	option = {
+		name = mt_french_missions.7.b
+		set_variable = mt_fra_unlock_alliance_legitimists_decision
+		custom_tooltip = mt_fra_unlock_alliance_legitimists_tt
+	}
+}

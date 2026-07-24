@@ -1,0 +1,1128 @@
+@mt_panel_width = 530
+@mt_canvas_width = 520
+@mt_canvas_height = 3100
+@mt_node_width = 104
+@mt_node_height = 152
+@mt_icon_width = 59
+@mt_icon_height = 63
+@mt_col_1 = 0
+@mt_col_2 = 104
+@mt_col_3 = 208
+@mt_col_4 = 312
+@mt_col_5 = 416
+@mt_row_1 = 58
+@mt_row_2 = 210
+@mt_row_3 = 362
+@mt_row_4 = 514
+@mt_row_5 = 666
+@mt_row_6 = 818
+@mt_row_7 = 970
+@mt_row_8 = 1122
+@mt_row_9 = 1274
+@mt_row_10 = 1426
+@mt_row_11 = 1578
+@mt_row_12 = 1730
+@mt_row_13 = 1882
+@mt_row_14 = 2034
+@mt_row_15 = 2186
+@mt_row_16 = 2338
+@mt_row_17 = 2490
+@mt_row_18 = 2642
+@mt_row_19 = 2794
+@mt_row_20 = 2946
+@mt_arrow_y_1 = 179
+@mt_arrow_y_2 = 331
+@mt_arrow_y_3 = 483
+@mt_arrow_y_4 = 635
+@mt_arrow_y_5 = 787
+@mt_arrow_y_6 = 939
+@mt_arrow_y_7 = 1091
+@mt_arrow_y_8 = 1243
+@mt_arrow_y_9 = 1395
+@mt_arrow_y_10 = 1547
+@mt_arrow_y_11 = 1699
+@mt_arrow_y_12 = 1851
+@mt_arrow_y_13 = 2003
+@mt_arrow_y_14 = 2155
+@mt_arrow_y_15 = 2307
+@mt_arrow_y_16 = 2459
+@mt_arrow_y_17 = 2611
+@mt_arrow_y_18 = 2763
+@mt_arrow_y_19 = 2915
+
+types mission_tree
+{
+	type mission_tree_panel = container {
+		size = { @mt_panel_width @mt_canvas_height }
+		parentanchor = hcenter
+
+		empty_state = {
+			visible = "[Not(GetScriptedGui('mt_has_active_tree').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			parentanchor = vcenter|hcenter
+
+			blockoverride "text" {
+				text = "MT_NO_MISSION_TREE"
+			}
+		}
+
+		container = {
+			visible = no
+			size = { @mt_canvas_width @mt_canvas_height }
+			parentanchor = hcenter
+
+			default_header = {
+				position = { 0 0 }
+				blockoverride "text" {
+					text = "MT_FRA_TREE_HEADER"
+				}
+			}
+
+			### Row 1
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_1 }
+				blockoverride "mission_title" { text = "mt_fra_mission_01" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_01_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_01_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_01_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 1 arrows
+			mt_arrow_down_right = { position = { @mt_col_3 @mt_arrow_y_1 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_1 } }
+			mt_arrow_down_left = { position = { @mt_col_2 @mt_arrow_y_1 } }
+
+			### Row 2
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_2 }
+				blockoverride "mission_title" { text = "mt_fra_mission_04" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_04_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_04_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_04_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_2 }
+				blockoverride "mission_title" { text = "mt_fra_mission_03" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_03_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_03_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_03_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_2 }
+				blockoverride "mission_title" { text = "mt_fra_mission_02" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_02_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_02_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_02_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 2 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_2 } }
+			mt_arrow_down_right = { position = { @mt_col_4 @mt_arrow_y_2 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_2 } }
+			mt_arrow_down_left = { position = { @mt_col_1 @mt_arrow_y_2 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_2 } }
+
+			### Row 3
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_3 }
+				blockoverride "mission_title" { text = "mt_fra_mission_08" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_08_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_08_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_08_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_5 @mt_row_3 }
+				blockoverride "mission_title" { text = "mt_fra_mission_09" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_09_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_09_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_09_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_09_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_09_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_09_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_09_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_3 }
+				blockoverride "mission_title" { text = "mt_fra_mission_07" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_fire.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_07_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_07_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_07_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_1 @mt_row_3 }
+				blockoverride "mission_title" { text = "mt_fra_mission_05" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_05_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_05_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_05_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_3 }
+				blockoverride "mission_title" { text = "mt_fra_mission_06" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_06_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_06_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_06_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 3 arrows
+			mt_arrow_down_left_only = { position = { @mt_col_4 @mt_arrow_y_3 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_3 } }
+			mt_arrow_down_right_only = { position = { @mt_col_1 @mt_arrow_y_3 } }
+
+			### Row 4
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_4 }
+				blockoverride "mission_title" { text = "mt_fra_mission_12" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_12_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_12_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_12_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_12_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_12_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_12_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_12_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_4 }
+				blockoverride "mission_title" { text = "mt_fra_mission_11" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_11_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_11_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_11_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_11_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_11_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_11_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_11_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_4 }
+				blockoverride "mission_title" { text = "mt_fra_mission_10" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_10_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_10_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_10_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_10_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_10_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_10_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_10_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 4 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_4 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_4 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_4 } }
+
+			### Row 5
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_5 }
+				blockoverride "mission_title" { text = "mt_fra_mission_15" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_15_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_15_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_15_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_15_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_15_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_15_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_15_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_5 }
+				blockoverride "mission_title" { text = "mt_fra_mission_14" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_14_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_14_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_14_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_14_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_14_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_14_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_14_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_5 }
+				blockoverride "mission_title" { text = "mt_fra_mission_13" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_13_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_13_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_13_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_13_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_13_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_13_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_13_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 5 arrows
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_5 } }
+
+			### Row 6
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_6 }
+				blockoverride "mission_title" { text = "mt_fra_mission_16" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_16_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_16_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_16_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_16_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_16_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_16_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_16_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+
+			### Row 8
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_8 }
+				blockoverride "mission_title" { text = "mt_fra_mission_17" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_17_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_17_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_17_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_17_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_17_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_17_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_17_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 8 arrows
+			mt_arrow_down_right = { position = { @mt_col_3 @mt_arrow_y_8 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_8 } }
+			mt_arrow_down_left = { position = { @mt_col_2 @mt_arrow_y_8 } }
+
+			### Row 9
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_9 }
+				blockoverride "mission_title" { text = "mt_fra_mission_20" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_20_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_20_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_20_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_20_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_20_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_20_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_20_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_9 }
+				blockoverride "mission_title" { text = "mt_fra_mission_19" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/bicorne_hat.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_19_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_19_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_19_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_19_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_19_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_19_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_19_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_9 }
+				blockoverride "mission_title" { text = "mt_fra_mission_18" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_18_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_18_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_18_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_18_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_18_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_18_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_18_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 9 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_9 } }
+			mt_arrow_down_right = { position = { @mt_col_4 @mt_arrow_y_9 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_9 } }
+			mt_arrow_down_left = { position = { @mt_col_1 @mt_arrow_y_9 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_9 } }
+
+			### Row 10
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_10 }
+				blockoverride "mission_title" { text = "mt_fra_mission_24" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_24_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_24_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_24_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_24_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_24_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_24_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_24_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_5 @mt_row_10 }
+				blockoverride "mission_title" { text = "mt_fra_mission_25" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_portrait.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_25_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_25_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_25_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_25_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_25_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_25_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_25_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_10 }
+				blockoverride "mission_title" { text = "mt_fra_mission_23" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_23_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_23_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_23_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_23_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_23_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_23_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_23_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_1 @mt_row_10 }
+				blockoverride "mission_title" { text = "mt_fra_mission_21" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_21_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_21_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_21_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_21_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_21_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_21_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_21_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_10 }
+				blockoverride "mission_title" { text = "mt_fra_mission_22" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_22_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_22_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_22_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_22_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_22_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_22_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_22_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 10 arrows
+			mt_arrow_down_left_only = { position = { @mt_col_4 @mt_arrow_y_10 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_10 } }
+			mt_arrow_down_right_only = { position = { @mt_col_1 @mt_arrow_y_10 } }
+
+			### Row 11
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_11 }
+				blockoverride "mission_title" { text = "mt_fra_mission_28" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_28_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_28_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_28_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_28_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_28_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_28_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_28_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_11 }
+				blockoverride "mission_title" { text = "mt_fra_mission_27" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_fire.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_27_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_27_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_27_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_27_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_27_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_27_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_27_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_11 }
+				blockoverride "mission_title" { text = "mt_fra_mission_26" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/bicorne_hat.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_26_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_26_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_26_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_26_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_26_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_26_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_26_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 11 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_11 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_11 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_11 } }
+
+			### Row 12
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_12 }
+				blockoverride "mission_title" { text = "mt_fra_mission_31" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_31_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_31_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_31_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_31_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_31_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_31_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_31_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_12 }
+				blockoverride "mission_title" { text = "mt_fra_mission_30" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_30_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_30_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_30_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_30_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_30_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_30_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_30_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_12 }
+				blockoverride "mission_title" { text = "mt_fra_mission_29" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_29_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_29_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_29_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_29_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_29_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_29_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_29_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 12 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_12 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_12 } }
+
+			### Row 13
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_13 }
+				blockoverride "mission_title" { text = "mt_fra_mission_33" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_33_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_33_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_33_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_33_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_33_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_33_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_33_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_13 }
+				blockoverride "mission_title" { text = "mt_fra_mission_32" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_32_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_32_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_32_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_32_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_32_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_32_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_32_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+
+			### Row 15
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_15 }
+				blockoverride "mission_title" { text = "mt_fra_mission_34" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_34_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_34_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_34_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_34_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_34_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_34_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_34_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 15 arrows
+			mt_arrow_down_right = { position = { @mt_col_3 @mt_arrow_y_15 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_15 } }
+			mt_arrow_down_left = { position = { @mt_col_2 @mt_arrow_y_15 } }
+
+			### Row 16
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_16 }
+				blockoverride "mission_title" { text = "mt_fra_mission_37" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_protest.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_37_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_37_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_37_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_37_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_37_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_37_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_37_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_16 }
+				blockoverride "mission_title" { text = "mt_fra_mission_36" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_portrait.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_36_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_36_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_36_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_36_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_36_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_36_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_36_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_16 }
+				blockoverride "mission_title" { text = "mt_fra_mission_35" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_35_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_35_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_35_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_35_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_35_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_35_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_35_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 16 arrows
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_16 } }
+			mt_arrow_down_right = { position = { @mt_col_4 @mt_arrow_y_16 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_16 } }
+			mt_arrow_down_left = { position = { @mt_col_1 @mt_arrow_y_16 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_16 } }
+
+			### Row 17
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_17 }
+				blockoverride "mission_title" { text = "mt_fra_mission_41" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_41_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_41_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_41_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_41_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_41_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_41_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_41_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_5 @mt_row_17 }
+				blockoverride "mission_title" { text = "mt_fra_mission_42" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_42_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_42_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_42_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_42_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_42_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_42_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_42_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_17 }
+				blockoverride "mission_title" { text = "mt_fra_mission_40" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_40_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_40_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_40_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_40_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_40_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_40_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_40_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_1 @mt_row_17 }
+				blockoverride "mission_title" { text = "mt_fra_mission_38" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_map.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_38_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_38_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_38_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_38_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_38_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_38_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_38_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_17 }
+				blockoverride "mission_title" { text = "mt_fra_mission_39" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_39_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_39_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_39_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_39_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_39_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_39_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_39_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 17 arrows
+			mt_arrow_down_left_only = { position = { @mt_col_4 @mt_arrow_y_17 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_17 } }
+			mt_arrow_down_right_only = { position = { @mt_col_1 @mt_arrow_y_17 } }
+
+			### Row 18
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_18 }
+				blockoverride "mission_title" { text = "mt_fra_mission_45" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_45_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_45_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_45_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_45_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_45_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_45_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_45_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_18 }
+				blockoverride "mission_title" { text = "mt_fra_mission_44" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_44_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_44_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_44_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_44_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_44_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_44_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_44_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_18 }
+				blockoverride "mission_title" { text = "mt_fra_mission_43" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_portrait.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_43_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_43_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_43_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_43_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_43_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_43_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_43_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 18 arrows
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_18 } }
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_18 } }
+			mt_arrow_down_left = { position = { @mt_col_1 @mt_arrow_y_18 } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_18 } }
+
+			### Row 19
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_19 }
+				blockoverride "mission_title" { text = "mt_fra_mission_48" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_election.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_48_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_48_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_48_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_48_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_48_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_48_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_48_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_4 @mt_row_19 }
+				blockoverride "mission_title" { text = "mt_fra_mission_49" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_49_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_49_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_49_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_49_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_49_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_49_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_49_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_1 @mt_row_19 }
+				blockoverride "mission_title" { text = "mt_fra_mission_46" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_46_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_46_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_46_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_46_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_46_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_46_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_46_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			mt_mission_button = {
+				position = { @mt_col_2 @mt_row_19 }
+				blockoverride "mission_title" { text = "mt_fra_mission_47" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_47_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_47_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_47_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_47_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_47_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_47_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_47_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+			### Row 19 arrows
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_19 } }
+
+			### Row 20
+			mt_mission_button = {
+				position = { @mt_col_3 @mt_row_20 }
+				blockoverride "mission_title" { text = "mt_fra_mission_50" }
+				blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" }
+				blockoverride "mission_tooltip" { tooltip = "mt_fra_mission_50_tt" }
+				blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_mission_50_conditions_tt" }
+				blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_mission_50_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_mission_50_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_mission_50_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" }
+				blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_mission_50_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_mission_50_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" }
+			}
+
+		}
+
+		mt_french_politics_tree = {}
+	}
+
+	type mt_french_politics_tree = container {
+		visible = "[GetScriptedGui('mt_has_fra_tree').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		size = { @mt_canvas_width @mt_canvas_height }
+		parentanchor = hcenter
+
+		default_header = {
+			position = { 0 0 }
+			blockoverride "text" { text = "MT_FRA_POLITICAL_TREE_HEADER" }
+		}
+
+		# Monarchist path: three competing dynastic currents become one settlement.
+		container = {
+			visible = "[GetScriptedGui('mt_has_fra_monarchist_path').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			size = { @mt_canvas_width @mt_canvas_height }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_1 } blockoverride "mission_title" { text = "mt_fra_political_m01" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/mt_france_royal_arms.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m01_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m01_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m01_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m01_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down_left = { position = { @mt_col_2 @mt_arrow_y_1 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_1 } }
+			mt_arrow_down_right = { position = { @mt_col_3 @mt_arrow_y_1 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_2 } blockoverride "mission_title" { text = "mt_fra_political_m02" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m02_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m02_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m02_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m02_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_2 } blockoverride "mission_title" { text = "mt_fra_political_m03" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m03_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m03_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m03_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m03_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_2 } blockoverride "mission_title" { text = "mt_fra_political_m04" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/mt_france_napoleonic_arms.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m04_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m04_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m04_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m04_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_2 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_2 } }
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_2 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_3 } blockoverride "mission_title" { text = "mt_fra_political_m05" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_protest.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m05_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m05_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m05_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m05_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_3 } blockoverride "mission_title" { text = "mt_fra_political_m06" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m06_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m06_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m06_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m06_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_3 } blockoverride "mission_title" { text = "mt_fra_political_m07" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m07_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m07_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m07_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m07_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_3 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_3 } }
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_3 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_4 } blockoverride "mission_title" { text = "mt_fra_political_m08" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_newspaper.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m08_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m08_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m08_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m08_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_4 } blockoverride "mission_title" { text = "mt_fra_political_m09" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/bicorne_hat.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m09_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m09_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m09_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m09_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m09_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m09_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m09_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m09_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_4 } blockoverride "mission_title" { text = "mt_fra_political_m10" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_military.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m10_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m10_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m10_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m10_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m10_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m10_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m10_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m10_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down_right_only = { position = { @mt_col_2 @mt_arrow_y_4 } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_4 } }
+			mt_arrow_down_left_only = { position = { @mt_col_3 @mt_arrow_y_4 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_5 } blockoverride "mission_title" { text = "mt_fra_political_m11" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_election.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m11_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m11_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m11_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m11_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m11_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m11_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m11_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m11_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_5 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_6 } blockoverride "mission_title" { text = "mt_fra_political_m12" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/mt_france_national_emblem.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m12_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m12_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m12_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m12_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m12_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m12_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m12_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m12_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_6 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_7 } blockoverride "mission_title" { text = "mt_fra_political_m13" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_scales.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m13_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m13_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m13_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m13_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m13_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m13_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m13_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m13_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_7 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_8 } blockoverride "mission_title" { text = "mt_fra_political_m14" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_portrait.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m14_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m14_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m14_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m14_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m14_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m14_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m14_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m14_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_3 @mt_arrow_y_8 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_9 } blockoverride "mission_title" { text = "mt_fra_political_m15" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_m15_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_m15_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_m15_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_m15_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_m15_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_m15_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_m15_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_m15_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+		}
+
+		# Republican path replaces the Crown path after the monarchy falls.
+		container = {
+			visible = "[GetScriptedGui('mt_has_fra_republican_path').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			size = { @mt_canvas_width @mt_canvas_height }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_1 } blockoverride "mission_title" { text = "mt_fra_political_r01" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/mt_france_republic.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r01_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r01_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r01_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r01_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r01_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r01_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down_left = { position = { @mt_col_2 @mt_arrow_y_1 } }
+			mt_arrow_down_right = { position = { @mt_col_3 @mt_arrow_y_1 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_2 } blockoverride "mission_title" { text = "mt_fra_political_r02" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_industry.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r02_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r02_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r02_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r02_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r02_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r02_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_2 } blockoverride "mission_title" { text = "mt_fra_political_r03" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_election.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r03_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r03_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r03_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r03_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r03_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r03_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_2 } }
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_2 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_3 } blockoverride "mission_title" { text = "mt_fra_political_r04" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_portrait.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r04_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r04_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r04_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r04_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r04_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r04_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_3 } blockoverride "mission_title" { text = "mt_fra_political_r05" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_trade.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r05_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r05_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r05_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r05_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r05_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r05_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down = { position = { @mt_col_2 @mt_arrow_y_3 } }
+			mt_arrow_down = { position = { @mt_col_4 @mt_arrow_y_3 } }
+			mt_mission_button = { position = { @mt_col_2 @mt_row_4 } blockoverride "mission_title" { text = "mt_fra_political_r06" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/mt_france_red_republic.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r06_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r06_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r06_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r06_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r06_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r06_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_mission_button = { position = { @mt_col_4 @mt_row_4 } blockoverride "mission_title" { text = "mt_fra_political_r07" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/event_election.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r07_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r07_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r07_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r07_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r07_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r07_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+			mt_arrow_down_right = { position = { @mt_col_2 @mt_arrow_y_4 } }
+			mt_arrow_down_left = { position = { @mt_col_3 @mt_arrow_y_4 } }
+			mt_mission_button = { position = { @mt_col_3 @mt_row_5 } blockoverride "mission_title" { text = "mt_fra_political_r08" } blockoverride "mission_icon" { texture = "gfx/interface/icons/event_icons/waving_flag.dds" } blockoverride "mission_tooltip" { tooltip = "mt_fra_political_r08_full_tt" } blockoverride "mission_conditions_tooltip" { tooltip = "mt_fra_political_r08_conditions_tt" } blockoverride "mission_reward_tooltip" { tooltip = "[GetScriptedGui('mt_fra_political_r08_reward').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_onclick" { onclick = "[GetScriptedGui('mt_fra_political_r08_claim').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_completed_visibility" { visible = "[GetScriptedGui('mt_fra_political_r08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_available_visibility" { visible = "[GetScriptedGui('mt_fra_political_r08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" } blockoverride "mission_locked_visibility" { visible = "[And(Not(GetScriptedGui('mt_fra_political_r08_claim').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Not(GetScriptedGui('mt_fra_political_r08_done').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]" } }
+		}
+	}
+
+	type mt_mission_button = button {
+		size = { @mt_node_width @mt_node_height }
+		block "mission_onclick" {}
+		block "mission_tooltip" {}
+		using = tooltip_below
+		onmousehierarchyenter = "[PdxGuiWidget.FindChild('mission_hover_highlight').InterruptThenTriggerAnimation('mission_hover_hide','mission_hover_show')]"
+		onmousehierarchyleave = "[PdxGuiWidget.FindChild('mission_hover_highlight').InterruptThenTriggerAnimation('mission_hover_show','mission_hover_hide')]"
+
+		icon = {
+			block "mission_available_visibility" {
+				visible = no
+			}
+			texture = "gfx/interface/missions/mission_icons_frame.dds"
+			size = { 103 123 }
+			position = { 0 0 }
+		}
+
+		icon = {
+			block "mission_completed_visibility" {
+				visible = no
+			}
+			texture = "gfx/interface/missions/mission_icons_frame_complete.dds"
+			size = { 103 123 }
+			position = { 0 0 }
+		}
+
+		icon = {
+			block "mission_locked_visibility" {
+				visible = no
+			}
+			texture = "gfx/interface/missions/mission_icons_frame_locked.dds"
+			size = { 103 123 }
+			position = { 0 0 }
+		}
+
+		# EU4-style hover: the mission frame receives a brief golden highlight.
+		icon = {
+			name = mission_hover_highlight
+			texture = "gfx/interface/missions/mission_icons_frame_complete.dds"
+			size = { 103 123 }
+			position = { 0 0 }
+			alpha = 0
+			alwaystransparent = yes
+
+			state = {
+				name = mission_hover_show
+				alpha = 0.42
+				duration = 0.12
+				using = Animation_Curve_Default
+			}
+
+			state = {
+				name = mission_hover_hide
+				alpha = 0
+				duration = 0.2
+				using = Animation_Curve_Default
+			}
+		}
+
+		icon = {
+			block "mission_icon" {
+				texture = "gfx/interface/missions/mission_placeholder.dds"
+			}
+			size = { @mt_icon_width @mt_icon_height }
+			position = { 22 20 }
+		}
+
+		textbox = {
+			block "mission_title" {
+				text = "MT_MISSION_PLACEHOLDER"
+			}
+			# EU4 mission labels sit on the two lower blue nameplates.
+			size = { 90 34 }
+			maximumsize = { 90 34 }
+			minimumsize = { 90 34 }
+			multiline = yes
+			autoresize = no
+			align = top|hcenter|nobaseline
+			default_format = "#white;bold"
+			using = fontsize_small
+			position = { 8 84 }
+		}
+
+		icon = {
+			block "mission_conditions_tooltip" {
+				tooltip = "MT_MISSION_CONDITIONS_TT"
+			}
+			using = tooltip_below
+			texture = "gfx/interface/missions/mission_trigger.dds"
+			size = { 33 33 }
+			position = { 0 7 }
+		}
+
+		icon = {
+			block "mission_available_visibility" {
+				visible = no
+			}
+			texture = "gfx/interface/missions/mission_effect_glow.dds"
+			size = { 56 56 }
+			position = { 58 -4 }
+		}
+
+		icon = {
+			block "mission_reward_tooltip" {
+				tooltip = "MT_MISSION_REWARD_TT"
+			}
+			using = tooltip_below
+			texture = "gfx/interface/missions/mission_effect.dds"
+			# The EU4 texture is a horizontal three-frame strip; display one frame.
+			size = { 33 33 }
+			framesize = { 33 33 }
+			frame = 0
+			position = { 70 7 }
+		}
+
+	}
+
+	type mt_arrow_down = container {
+		size = { @mt_node_width 55 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_verticall_tile.dds"
+			size = { 11 20 }
+			position = { 46 0 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_end.dds"
+			size = { 27 24 }
+			position = { 38 20 }
+		}
+	}
+
+	type mt_arrow_down_left = container {
+		size = { 208 55 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_verticall_tile.dds"
+			size = { 11 20 }
+			position = { 150 0 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_left_out.dds"
+			size = { 39 16 }
+			position = { 108 1 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_tile.dds"
+			size = { 14 11 }
+			position = { 100 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_left_in.dds"
+			size = { 39 16 }
+			position = { 69 4 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_end.dds"
+			size = { 27 24 }
+			position = { 61 20 }
+		}
+	}
+
+	type mt_arrow_down_right = container {
+		size = { 208 55 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_verticall_tile.dds"
+			size = { 11 20 }
+			position = { 46 0 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_right_out.dds"
+			size = { 39 16 }
+			position = { 60 1 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_tile.dds"
+			size = { 14 11 }
+			position = { 94 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_right_in.dds"
+			size = { 39 16 }
+			position = { 99 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_end.dds"
+			size = { 27 24 }
+			position = { 119 20 }
+		}
+	}
+
+	type mt_arrow_down_left_only = container {
+		size = { 208 55 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_left_out.dds"
+			size = { 39 16 }
+			position = { 108 1 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_tile.dds"
+			size = { 14 11 }
+			position = { 100 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_left_in.dds"
+			size = { 39 16 }
+			position = { 69 4 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_end.dds"
+			size = { 27 24 }
+			position = { 61 20 }
+		}
+	}
+
+	type mt_arrow_down_right_only = container {
+		size = { 208 55 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_right_out.dds"
+			size = { 39 16 }
+			position = { 60 1 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_tile.dds"
+			size = { 14 11 }
+			position = { 94 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_right_in.dds"
+			size = { 39 16 }
+			position = { 99 6 }
+		}
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_end.dds"
+			size = { 27 24 }
+			position = { 119 20 }
+		}
+	}
+
+	type mt_arrow_left = container {
+		size = { @mt_node_width 20 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_skip_slot.dds"
+			size = { 124 11 }
+			position = { -6 6 }
+		}
+	}
+
+	type mt_arrow_right = container {
+		size = { @mt_node_width 20 }
+
+		icon = {
+			texture = "gfx/interface/missions/arrow_horizontal_skip_slot.dds"
+			size = { 124 11 }
+			position = { -6 6 }
+		}
+	}
+}

@@ -1,0 +1,57 @@
+mt_fra_monarchist_public_acclaim = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_popularity_add = 25
+}
+
+mt_fra_july_monarchy_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	political_movement_radicalism_from_enactment_approval_mult = 1
+	country_law_enactment_stall_mult = -0.25
+	country_opposition_ig_approval_add = -5
+	country_authority_mult = -0.15
+}
+
+mt_fra_national_guard_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	military_formation_mobilization_speed_mult = 0.05
+}
+
+mt_fra_balance_chambers_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_law_enactment_success_add = 0.05
+}
+
+mt_fra_french_settlement_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+}
+
+mt_fra_legitimist_placated = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	political_movement_activism_growth_mult = -0.25
+}
+
+mt_fra_devout_legitimist_favor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_approval_add = 5
+}
+
+mt_fra_devout_legitimist_displeasure = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_approval_add = -5
+}
+
+mt_fra_legitimist_state_religion_support = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	political_movement_pop_attraction_mult = 0.5
+}
+
+mt_fra_legitimist_secular_setback = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	political_movement_pop_attraction_mult = -0.5
+}
+
+mt_fra_legitimist_royalist_discredit = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	character_popularity_add = -50
+}

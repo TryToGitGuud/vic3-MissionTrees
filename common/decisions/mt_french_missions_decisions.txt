@@ -1,0 +1,87 @@
+# Future France midgame decisions. Each is exposed only by its mission/event unlock variable.
+
+mt_fra_convene_council_of_state = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_council_of_state_decision
+	}
+
+	# Placeholder: define requirements and consequences when this is unlocked by content.
+	possible = { always = no }
+	when_taken = { }
+
+	ai_chance = { value = 0 }
+}
+
+mt_fra_reform_the_prefectures = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_prefectures_decision
+	}
+
+	# Placeholder: define requirements and consequences when this is unlocked by content.
+	possible = { always = no }
+	when_taken = { }
+
+	ai_chance = { value = 0 }
+}
+
+mt_fra_proclaim_national_reconciliation = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_reconciliation_decision
+	}
+
+	# Placeholder: define requirements and consequences when this is unlocked by content.
+	possible = { always = no }
+	when_taken = { }
+
+	ai_chance = { value = 0 }
+}
+
+mt_fra_placate_legitimists = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_placate_legitimists_decision
+		NOT = { has_variable = mt_fra_placate_legitimists_taken }
+	}
+	possible = { any_political_movement = { is_political_movement_type = movement_legitimist } }
+	when_taken = {
+		set_variable = mt_fra_placate_legitimists_taken
+		remove_variable = mt_fra_unlock_placate_legitimists_decision
+		random_political_movement = {
+			limit = { is_political_movement_type = movement_legitimist }
+			add_modifier = { name = mt_fra_legitimist_placated days = long_modifier_time }
+		}
+		trigger_event = { id = mt_french_missions.6 days = 0 }
+	}
+	ai_chance = { value = 0 }
+}
+
+mt_fra_isolate_legitimists = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_isolate_legitimists_decision
+		NOT = { has_variable = mt_fra_legitimist_isolation_chosen }
+	}
+	possible = { always = yes }
+	when_taken = {
+		set_variable = mt_fra_legitimist_isolation_chosen
+		remove_variable = mt_fra_unlock_isolate_legitimists_decision
+	}
+	ai_chance = { value = 0 }
+}
+
+mt_fra_alliance_with_legitimists = {
+	is_shown = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_alliance_legitimists_decision
+		NOT = { has_variable = mt_fra_legitimist_alliance_chosen }
+	}
+	possible = { always = yes }
+	when_taken = {
+		set_variable = mt_fra_legitimist_alliance_chosen
+		remove_variable = mt_fra_unlock_alliance_legitimists_decision
+	}
+	ai_chance = { value = 0 }
+}

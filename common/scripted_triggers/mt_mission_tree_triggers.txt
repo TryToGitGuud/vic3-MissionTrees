@@ -1,0 +1,3 @@
+mt_has_fra_tree_trigger = {
+	c:FRA = this
+}

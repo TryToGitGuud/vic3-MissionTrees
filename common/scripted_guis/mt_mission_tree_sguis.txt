@@ -1,0 +1,1114 @@
+﻿mt_has_active_tree = {
+	scope = country
+
+	is_shown = {
+		OR = {
+			mt_has_fra_tree_trigger = yes
+		}
+	}
+}
+
+mt_has_fra_tree = {
+	scope = country
+
+	is_shown = {
+		mt_has_fra_tree_trigger = yes
+	}
+}
+
+mt_fra_mission_34_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_34_done
+	}
+}
+
+mt_fra_mission_34_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		NOT = { has_variable = mt_fra_mission_34_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_34_done
+	}
+}
+
+mt_fra_mission_33_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_33_done
+	}
+}
+
+mt_fra_mission_33_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_31_done
+		NOT = { has_variable = mt_fra_mission_33_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_33_done
+	}
+}
+
+mt_fra_mission_32_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_32_done
+	}
+}
+
+mt_fra_mission_32_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_30_done
+		NOT = { has_variable = mt_fra_mission_32_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_32_done
+	}
+}
+
+mt_fra_mission_37_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_37_done
+	}
+}
+
+mt_fra_mission_37_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_34_done
+		NOT = { has_variable = mt_fra_mission_37_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_37_done
+	}
+}
+
+mt_fra_mission_36_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_36_done
+	}
+}
+
+mt_fra_mission_36_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_34_done
+		NOT = { has_variable = mt_fra_mission_36_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_36_done
+	}
+}
+
+mt_fra_mission_35_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_35_done
+	}
+}
+
+mt_fra_mission_35_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_34_done
+		NOT = { has_variable = mt_fra_mission_35_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_35_done
+	}
+}
+
+mt_fra_mission_28_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_28_done
+	}
+}
+
+mt_fra_mission_28_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_25_done
+		NOT = { has_variable = mt_fra_mission_28_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_28_done
+	}
+}
+
+mt_fra_mission_27_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_27_done
+	}
+}
+
+mt_fra_mission_27_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_23_done
+		NOT = { has_variable = mt_fra_mission_27_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_27_done
+	}
+}
+
+mt_fra_mission_26_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_26_done
+	}
+}
+
+mt_fra_mission_26_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_21_done
+		NOT = { has_variable = mt_fra_mission_26_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_26_done
+	}
+}
+
+mt_fra_mission_31_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_31_done
+	}
+}
+
+mt_fra_mission_31_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_28_done
+		NOT = { has_variable = mt_fra_mission_31_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_31_done
+	}
+}
+
+mt_fra_mission_30_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_30_done
+	}
+}
+
+mt_fra_mission_30_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_27_done
+		NOT = { has_variable = mt_fra_mission_30_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_30_done
+	}
+}
+
+mt_fra_mission_29_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_29_done
+	}
+}
+
+mt_fra_mission_29_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_26_done
+		NOT = { has_variable = mt_fra_mission_29_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_29_done
+	}
+}
+
+mt_fra_mission_38_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_38_done
+	}
+}
+
+mt_fra_mission_38_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_35_done
+		NOT = { has_variable = mt_fra_mission_38_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_38_done
+	}
+}
+
+mt_fra_mission_47_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_47_done
+	}
+}
+
+mt_fra_mission_47_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_43_done
+		NOT = { has_variable = mt_fra_mission_47_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_47_done
+	}
+}
+
+mt_fra_mission_46_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_46_done
+	}
+}
+
+mt_fra_mission_46_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_43_done
+		NOT = { has_variable = mt_fra_mission_46_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_46_done
+	}
+}
+
+mt_fra_mission_45_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_45_done
+	}
+}
+
+mt_fra_mission_45_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_42_done
+		NOT = { has_variable = mt_fra_mission_45_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_45_done
+	}
+}
+
+mt_fra_mission_50_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_50_done
+	}
+}
+
+mt_fra_mission_50_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_48_done
+		NOT = { has_variable = mt_fra_mission_50_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_50_done
+	}
+}
+
+mt_fra_mission_49_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_49_done
+	}
+}
+
+mt_fra_mission_49_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_45_done
+		NOT = { has_variable = mt_fra_mission_49_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_49_done
+	}
+}
+
+mt_fra_mission_48_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_48_done
+	}
+}
+
+mt_fra_mission_48_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_44_done
+		NOT = { has_variable = mt_fra_mission_48_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_48_done
+	}
+}
+
+mt_fra_mission_41_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_41_done
+	}
+}
+
+mt_fra_mission_41_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_37_done
+		NOT = { has_variable = mt_fra_mission_41_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_41_done
+	}
+}
+
+mt_fra_mission_40_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_40_done
+	}
+}
+
+mt_fra_mission_40_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_36_done
+		NOT = { has_variable = mt_fra_mission_40_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_40_done
+	}
+}
+
+mt_fra_mission_39_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_39_done
+	}
+}
+
+mt_fra_mission_39_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_35_done
+		NOT = { has_variable = mt_fra_mission_39_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_39_done
+	}
+}
+
+mt_fra_mission_44_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_44_done
+	}
+}
+
+mt_fra_mission_44_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_40_done
+		NOT = { has_variable = mt_fra_mission_44_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_44_done
+	}
+}
+
+mt_fra_mission_43_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_43_done
+	}
+}
+
+mt_fra_mission_43_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_38_done
+		NOT = { has_variable = mt_fra_mission_43_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_43_done
+	}
+}
+
+mt_fra_mission_42_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_42_done
+	}
+}
+
+mt_fra_mission_42_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_37_done
+		NOT = { has_variable = mt_fra_mission_42_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_42_done
+	}
+}
+
+mt_fra_mission_09_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_09_done
+	}
+}
+
+mt_fra_mission_09_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_04_done
+		NOT = { has_variable = mt_fra_mission_09_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_09_done
+	}
+}
+
+mt_fra_mission_08_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_08_done
+	}
+}
+
+mt_fra_mission_08_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_04_done
+		NOT = { has_variable = mt_fra_mission_08_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_08_done
+	}
+}
+
+mt_fra_mission_07_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_07_done
+	}
+}
+
+mt_fra_mission_07_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_03_done
+		NOT = { has_variable = mt_fra_mission_07_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_07_done
+	}
+}
+
+mt_fra_mission_12_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_12_done
+	}
+}
+
+mt_fra_mission_12_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_09_done
+		NOT = { has_variable = mt_fra_mission_12_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_12_done
+	}
+}
+
+mt_fra_mission_11_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_11_done
+	}
+}
+
+mt_fra_mission_11_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_07_done
+		NOT = { has_variable = mt_fra_mission_11_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_11_done
+	}
+}
+
+mt_fra_mission_10_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_10_done
+	}
+}
+
+mt_fra_mission_10_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_05_done
+		NOT = { has_variable = mt_fra_mission_10_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_10_done
+	}
+}
+
+mt_fra_mission_03_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_03_done
+	}
+}
+
+mt_fra_mission_03_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_01_done
+		NOT = { has_variable = mt_fra_mission_03_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_03_done
+	}
+}
+
+mt_fra_mission_02_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_02_done
+	}
+}
+
+mt_fra_mission_02_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_01_done
+		NOT = { has_variable = mt_fra_mission_02_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_02_done
+	}
+}
+
+mt_fra_mission_01_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_01_done
+	}
+}
+
+mt_fra_mission_01_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		NOT = { has_variable = mt_fra_mission_01_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_01_done
+	}
+}
+
+mt_fra_mission_06_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_06_done
+	}
+}
+
+mt_fra_mission_06_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_02_done
+		NOT = { has_variable = mt_fra_mission_06_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_06_done
+	}
+}
+
+mt_fra_mission_05_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_05_done
+	}
+}
+
+mt_fra_mission_05_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_02_done
+		NOT = { has_variable = mt_fra_mission_05_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_05_done
+	}
+}
+
+mt_fra_mission_04_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_04_done
+	}
+}
+
+mt_fra_mission_04_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_01_done
+		NOT = { has_variable = mt_fra_mission_04_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_04_done
+	}
+}
+
+mt_fra_mission_13_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_13_done
+	}
+}
+
+mt_fra_mission_13_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_10_done
+		NOT = { has_variable = mt_fra_mission_13_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_13_done
+	}
+}
+
+mt_fra_mission_22_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_22_done
+	}
+}
+
+mt_fra_mission_22_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_18_done
+		NOT = { has_variable = mt_fra_mission_22_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_22_done
+	}
+}
+
+mt_fra_mission_21_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_21_done
+	}
+}
+
+mt_fra_mission_21_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_18_done
+		NOT = { has_variable = mt_fra_mission_21_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_21_done
+	}
+}
+
+mt_fra_mission_20_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_20_done
+	}
+}
+
+mt_fra_mission_20_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_17_done
+		NOT = { has_variable = mt_fra_mission_20_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_20_done
+	}
+}
+
+mt_fra_mission_25_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_25_done
+	}
+}
+
+mt_fra_mission_25_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_20_done
+		NOT = { has_variable = mt_fra_mission_25_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_25_done
+	}
+}
+
+mt_fra_mission_24_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_24_done
+	}
+}
+
+mt_fra_mission_24_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_20_done
+		NOT = { has_variable = mt_fra_mission_24_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_24_done
+	}
+}
+
+mt_fra_mission_23_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_23_done
+	}
+}
+
+mt_fra_mission_23_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_19_done
+		NOT = { has_variable = mt_fra_mission_23_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_23_done
+	}
+}
+
+mt_fra_mission_16_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_16_done
+	}
+}
+
+mt_fra_mission_16_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_14_done
+		NOT = { has_variable = mt_fra_mission_16_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_16_done
+	}
+}
+
+mt_fra_mission_15_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_15_done
+	}
+}
+
+mt_fra_mission_15_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_12_done
+		NOT = { has_variable = mt_fra_mission_15_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_15_done
+	}
+}
+
+mt_fra_mission_14_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_14_done
+	}
+}
+
+mt_fra_mission_14_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_11_done
+		NOT = { has_variable = mt_fra_mission_14_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_14_done
+	}
+}
+
+mt_fra_mission_19_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_19_done
+	}
+}
+
+mt_fra_mission_19_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_17_done
+		NOT = { has_variable = mt_fra_mission_19_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_19_done
+	}
+}
+
+mt_fra_mission_18_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_18_done
+	}
+}
+
+mt_fra_mission_18_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		has_variable = mt_fra_mission_17_done
+		NOT = { has_variable = mt_fra_mission_18_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_18_done
+	}
+}
+
+mt_fra_mission_17_done = {
+	scope = country
+
+	is_shown = {
+		has_variable = mt_fra_mission_17_done
+	}
+}
+
+mt_fra_mission_17_claim = {
+	scope = country
+
+	is_valid = {
+		mt_has_fra_tree_trigger = yes
+		NOT = { has_variable = mt_fra_mission_17_done }
+	}
+
+	effect = {
+		set_variable = mt_fra_mission_17_done
+	}
+}

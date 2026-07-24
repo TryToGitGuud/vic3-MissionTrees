@@ -1,0 +1,88 @@
+# Country scope. The two paths use the actual law state reached by Divided Monarchists.
+mt_has_fra_monarchist_path = {
+	scope = country
+	is_shown = { mt_has_fra_tree_trigger = yes country_has_monarchy_law = yes }
+}
+
+mt_has_fra_republican_path = {
+	scope = country
+	is_shown = { mt_has_fra_tree_trigger = yes NOT = { country_has_monarchy_law = yes } }
+}
+
+mt_fra_political_m01_done = { scope = country is_shown = { has_variable = mt_fra_political_m01_done } }
+mt_fra_political_m01_claim = { scope = country is_valid = { mt_has_fra_tree_trigger = yes country_has_monarchy_law = yes has_journal_entry = je_divided_monarchists NOT = { has_variable = mt_fra_political_m01_done } } effect = { set_variable = mt_fra_political_m01_done add_modifier = { name = mt_fra_july_monarchy_placeholder days = normal_modifier_time } trigger_event = { id = mt_french_missions.2 days = 0 } } }
+
+mt_fra_political_m02_done = { scope = country is_shown = { has_variable = mt_fra_political_m02_done } }
+mt_fra_political_m02_claim = { scope = country is_valid = { has_variable = mt_fra_political_m01_done NOT = { has_variable = mt_fra_political_m02_done } } effect = { set_variable = mt_fra_political_m02_done mt_fra_orleanist_momentum_effect = yes } }
+mt_fra_political_m03_done = { scope = country is_shown = { has_variable = mt_fra_political_m03_done } }
+mt_fra_political_m03_claim = { scope = country is_valid = { has_variable = mt_fra_political_m01_done NOT = { has_variable = mt_fra_political_m03_done } } effect = { set_variable = mt_fra_political_m03_done mt_fra_unlock_placate_legitimists_effect = yes } }
+mt_fra_political_m04_done = { scope = country is_shown = { has_variable = mt_fra_political_m04_done } }
+mt_fra_political_m04_claim = { scope = country is_valid = { has_variable = mt_fra_political_m01_done NOT = { has_variable = mt_fra_political_m04_done } } effect = { set_variable = mt_fra_political_m04_done mt_fra_bonapartist_momentum_effect = yes } }
+
+mt_fra_political_m05_done = { scope = country is_shown = { has_variable = mt_fra_political_m05_done } }
+mt_fra_political_m05_claim = { scope = country is_valid = { has_variable = mt_fra_political_m02_done NOT = { has_variable = mt_fra_political_m05_done } } effect = { set_variable = mt_fra_political_m05_done add_modifier = { name = mt_fra_national_guard_placeholder days = normal_modifier_time } trigger_event = { id = mt_french_missions.3 days = 0 } } }
+mt_fra_political_m06_done = { scope = country is_shown = { has_variable = mt_fra_political_m06_done } }
+mt_fra_political_m06_claim = { scope = country is_valid = { has_variable = mt_fra_political_m03_done NOT = { has_variable = mt_fra_political_m06_done } } effect = { set_variable = mt_fra_political_m06_done mt_fra_clerical_compact_reward_effect = yes trigger_event = { id = mt_french_missions.7 days = 0 } } }
+mt_fra_political_m07_done = { scope = country is_shown = { has_variable = mt_fra_political_m07_done } }
+mt_fra_political_m07_claim = { scope = country is_valid = { has_variable = mt_fra_political_m04_done NOT = { has_variable = mt_fra_political_m07_done } } effect = { set_variable = mt_fra_political_m07_done mt_fra_bonapartist_momentum_effect = yes } }
+
+mt_fra_political_m08_done = { scope = country is_shown = { has_variable = mt_fra_political_m08_done } }
+mt_fra_political_m08_claim = { scope = country is_valid = { has_variable = mt_fra_political_m05_done NOT = { has_variable = mt_fra_political_m08_done } } effect = { set_variable = mt_fra_political_m08_done mt_fra_orleanist_momentum_effect = yes } }
+mt_fra_political_m09_done = { scope = country is_shown = { has_variable = mt_fra_political_m09_done } }
+mt_fra_political_m09_claim = { scope = country is_valid = { has_variable = mt_fra_political_m06_done OR = { has_variable = mt_fra_legitimist_alliance_chosen has_variable = mt_fra_legitimist_isolation_chosen } NOT = { has_variable = mt_fra_political_m09_done } } effect = { set_variable = mt_fra_political_m09_done if = { limit = { has_variable = mt_fra_legitimist_alliance_chosen } mt_fra_legitimist_alliance_reward_effect = yes } else = { mt_fra_legitimist_isolation_reward_effect = yes } } }
+mt_fra_political_m10_done = { scope = country is_shown = { has_variable = mt_fra_political_m10_done } }
+mt_fra_political_m10_claim = { scope = country is_valid = { has_variable = mt_fra_political_m07_done NOT = { has_variable = mt_fra_political_m10_done } } effect = { set_variable = mt_fra_political_m10_done mt_fra_bonapartist_momentum_effect = yes } }
+
+mt_fra_political_m11_done = { scope = country is_shown = { has_variable = mt_fra_political_m11_done } }
+mt_fra_political_m11_claim = { scope = country is_valid = { has_variable = mt_fra_political_m08_done has_variable = mt_fra_political_m09_done has_variable = mt_fra_political_m10_done NOT = { has_variable = mt_fra_political_m11_done } } effect = { set_variable = mt_fra_political_m11_done add_modifier = { name = mt_fra_balance_chambers_placeholder days = normal_modifier_time } trigger_event = { id = mt_french_missions.4 days = 0 } } }
+mt_fra_political_m12_done = { scope = country is_shown = { has_variable = mt_fra_political_m12_done } }
+mt_fra_political_m12_claim = { scope = country is_valid = { has_variable = mt_fra_political_m11_done has_variable = one_true_french_dynasty NOT = { has_variable = mt_fra_political_m12_done } } effect = { set_variable = mt_fra_political_m12_done mt_fra_reward_monarchist_leaders_effect = yes trigger_event = { id = mt_french_missions.1 days = 0 } } }
+mt_fra_political_m13_done = { scope = country is_shown = { has_variable = mt_fra_political_m13_done } }
+mt_fra_political_m13_claim = { scope = country is_valid = { has_variable = mt_fra_political_m12_done NOT = { has_variable = mt_fra_political_m13_done } } effect = { set_variable = mt_fra_political_m13_done add_loyalists = { value = medium_radicals pop_type = clerks } } }
+mt_fra_political_m14_done = { scope = country is_shown = { has_variable = mt_fra_political_m14_done } }
+mt_fra_political_m14_claim = { scope = country is_valid = { has_variable = mt_fra_political_m13_done NOT = { has_variable = mt_fra_political_m14_done } } effect = { set_variable = mt_fra_political_m14_done mt_fra_reward_dynastic_ambition_effect = yes } }
+mt_fra_political_m15_done = { scope = country is_shown = { has_variable = mt_fra_political_m15_done } }
+mt_fra_political_m15_claim = { scope = country is_valid = { has_variable = mt_fra_political_m14_done NOT = { has_variable = mt_fra_political_m15_done } } effect = { set_variable = mt_fra_political_m15_done add_modifier = { name = mt_fra_french_settlement_placeholder days = normal_modifier_time } trigger_event = { id = mt_french_missions.5 days = 0 } } }
+
+mt_fra_political_r01_done = { scope = country is_shown = { has_variable = mt_fra_political_r01_done } }
+mt_fra_political_r01_claim = { scope = country is_valid = { mt_has_fra_tree_trigger = yes NOT = { country_has_monarchy_law = yes } NOT = { has_variable = mt_fra_political_r01_done } } effect = { set_variable = mt_fra_political_r01_done add_loyalists = { value = small_radicals strata = lower } } }
+mt_fra_political_r02_done = { scope = country is_shown = { has_variable = mt_fra_political_r02_done } }
+mt_fra_political_r02_claim = { scope = country is_valid = { has_variable = mt_fra_political_r01_done NOT = { has_variable = mt_fra_political_r02_done } } effect = { set_variable = mt_fra_political_r02_done add_loyalists = { value = medium_radicals strata = lower } } }
+mt_fra_political_r03_done = { scope = country is_shown = { has_variable = mt_fra_political_r03_done } }
+mt_fra_political_r03_claim = { scope = country is_valid = { has_variable = mt_fra_political_r01_done NOT = { has_variable = mt_fra_political_r03_done } } effect = { set_variable = mt_fra_political_r03_done add_loyalists = { value = medium_radicals strata = middle } } }
+mt_fra_political_r04_done = { scope = country is_shown = { has_variable = mt_fra_political_r04_done } }
+mt_fra_political_r04_claim = { scope = country is_valid = { has_variable = mt_fra_political_r02_done NOT = { has_variable = mt_fra_political_r04_done } } effect = { set_variable = mt_fra_political_r04_done add_loyalists = { value = small_radicals strata = upper } } }
+mt_fra_political_r05_done = { scope = country is_shown = { has_variable = mt_fra_political_r05_done } }
+mt_fra_political_r05_claim = { scope = country is_valid = { has_variable = mt_fra_political_r03_done NOT = { has_variable = mt_fra_political_r05_done } } effect = { set_variable = mt_fra_political_r05_done add_loyalists = { value = medium_radicals strata = upper } } }
+mt_fra_political_r06_done = { scope = country is_shown = { has_variable = mt_fra_political_r06_done } }
+mt_fra_political_r06_claim = { scope = country is_valid = { has_variable = mt_fra_political_r04_done NOT = { has_variable = mt_fra_political_r06_done } } effect = { set_variable = mt_fra_political_r06_done add_loyalists = { value = medium_radicals pop_type = servicemen } } }
+mt_fra_political_r07_done = { scope = country is_shown = { has_variable = mt_fra_political_r07_done } }
+mt_fra_political_r07_claim = { scope = country is_valid = { has_variable = mt_fra_political_r05_done NOT = { has_variable = mt_fra_political_r07_done } } effect = { set_variable = mt_fra_political_r07_done add_loyalists = { value = medium_radicals strata = lower } } }
+mt_fra_political_r08_done = { scope = country is_shown = { has_variable = mt_fra_political_r08_done } }
+mt_fra_political_r08_claim = { scope = country is_valid = { has_variable = mt_fra_political_r06_done has_variable = mt_fra_political_r07_done NOT = { has_variable = mt_fra_political_r08_done } } effect = { set_variable = mt_fra_political_r08_done add_loyalists = { value = large_radicals strata = middle } } }
+
+# Country scope. These are parser-backed previews for the reward icon tooltips.
+mt_fra_political_m01_reward = { scope = country effect = { add_modifier = { name = mt_fra_july_monarchy_placeholder days = normal_modifier_time } } }
+mt_fra_political_m02_reward = { scope = country effect = { mt_fra_orleanist_momentum_effect = yes } }
+mt_fra_political_m03_reward = { scope = country effect = { mt_fra_unlock_placate_legitimists_effect = yes } }
+mt_fra_political_m04_reward = { scope = country effect = { mt_fra_bonapartist_momentum_effect = yes } }
+mt_fra_political_m05_reward = { scope = country effect = { add_modifier = { name = mt_fra_national_guard_placeholder days = normal_modifier_time } } }
+mt_fra_political_m06_reward = { scope = country effect = { mt_fra_clerical_compact_reward_effect = yes } }
+mt_fra_political_m07_reward = { scope = country effect = { mt_fra_bonapartist_momentum_effect = yes } }
+mt_fra_political_m08_reward = { scope = country effect = { mt_fra_orleanist_momentum_effect = yes } }
+mt_fra_political_m09_reward = { scope = country effect = { if = { limit = { has_variable = mt_fra_legitimist_alliance_chosen } mt_fra_legitimist_alliance_reward_effect = yes } else = { mt_fra_legitimist_isolation_reward_effect = yes } } }
+mt_fra_political_m10_reward = { scope = country effect = { mt_fra_bonapartist_momentum_effect = yes } }
+mt_fra_political_m11_reward = { scope = country effect = { add_modifier = { name = mt_fra_balance_chambers_placeholder days = normal_modifier_time } } }
+mt_fra_political_m12_reward = { scope = country effect = { mt_fra_reward_monarchist_leaders_effect = yes } }
+mt_fra_political_m13_reward = { scope = country effect = { add_loyalists = { value = medium_radicals pop_type = clerks } } }
+mt_fra_political_m14_reward = { scope = country effect = { mt_fra_reward_dynastic_ambition_effect = yes } }
+mt_fra_political_m15_reward = { scope = country effect = { add_modifier = { name = mt_fra_french_settlement_placeholder days = normal_modifier_time } } }
+
+mt_fra_political_r01_reward = { scope = country effect = { add_loyalists = { value = small_radicals strata = lower } } }
+mt_fra_political_r02_reward = { scope = country effect = { add_loyalists = { value = medium_radicals strata = lower } } }
+mt_fra_political_r03_reward = { scope = country effect = { add_loyalists = { value = medium_radicals strata = middle } } }
+mt_fra_political_r04_reward = { scope = country effect = { add_loyalists = { value = small_radicals strata = upper } } }
+mt_fra_political_r05_reward = { scope = country effect = { add_loyalists = { value = medium_radicals strata = upper } } }
+mt_fra_political_r06_reward = { scope = country effect = { add_loyalists = { value = medium_radicals pop_type = servicemen } } }
+mt_fra_political_r07_reward = { scope = country effect = { add_loyalists = { value = medium_radicals strata = lower } } }
+mt_fra_political_r08_reward = { scope = country effect = { add_loyalists = { value = large_radicals strata = middle } } }

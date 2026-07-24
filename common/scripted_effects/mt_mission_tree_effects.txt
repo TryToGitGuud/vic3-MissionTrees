@@ -1,0 +1,117 @@
+# Country scope. Use this file for shared mission rewards and follow-up logic.
+mt_mission_tree_noop_effect = {
+}
+
+# Country scope. France's Divided Monarchists mission branch.
+mt_fra_orleanist_momentum_effect = {
+	je:je_divided_monarchists ?= {
+		add_progress = { name = divided_monarchists_orleanist_progress_bar value = 18 }
+	}
+	ig:ig_industrialists ?= {
+		leader = { set_ideology = ideology:ideology_orleanist }
+	}
+	add_loyalists = { value = small_radicals strata = middle }
+}
+
+mt_fra_bonapartist_momentum_effect = {
+	je:je_divided_monarchists ?= {
+		add_progress = { name = divided_monarchists_bonapartist_progress_bar value = 18 }
+	}
+	ig:ig_armed_forces ?= {
+		leader = { set_ideology = ideology:ideology_bonapartist }
+	}
+	add_loyalists = { value = small_radicals pop_type = officers }
+}
+
+mt_fra_reward_monarchist_leaders_effect = {
+	every_interest_group = {
+		limit = {
+			leader = {
+				OR = {
+					has_ideology = ideology:ideology_orleanist
+					has_ideology = ideology:ideology_legitimist
+					has_ideology = ideology:ideology_bonapartist
+				}
+			}
+		}
+		leader = {
+			add_trait = charismatic
+			add_modifier = {
+				name = mt_fra_monarchist_public_acclaim
+				days = long_modifier_time
+			}
+		}
+	}
+}
+
+mt_fra_reward_dynastic_ambition_effect = {
+	ruler ?= { add_trait = ambitious }
+	heir ?= { add_trait = ambitious }
+	add_loyalists = { value = medium_radicals strata = upper }
+}
+
+# Country scope. The White Flag unlocks a one-time decision, whose event settles its immediate stance.
+mt_fra_unlock_placate_legitimists_effect = {
+	set_variable = mt_fra_unlock_placate_legitimists_decision
+	custom_tooltip = mt_fra_unlock_placate_legitimists_tt
+}
+
+# Country scope. Clerical Compact rewards are selected from the actual state religion law.
+mt_fra_clerical_compact_reward_effect = {
+	if = {
+		limit = { has_law_or_variant = law_type:law_state_religion }
+		add_loyalists = { value = 0.05 strata = lower }
+		custom_tooltip = legitimist_progress_increase_40_tt
+		je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = 40 } }
+		if = {
+			limit = { any_political_movement = { is_political_movement_type = movement_legitimist } }
+			random_political_movement = {
+				limit = { is_political_movement_type = movement_legitimist }
+				add_modifier = { name = mt_fra_legitimist_state_religion_support days = long_modifier_time }
+			}
+		}
+	}
+	else = {
+		add_loyalists = { value = 0.15 pop_type = academics }
+		custom_tooltip = mt_fra_legitimist_progress_decrease_40_tt
+		je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = -40 } }
+		if = {
+			limit = { any_political_movement = { is_political_movement_type = movement_legitimist } }
+			random_political_movement = {
+				limit = { is_political_movement_type = movement_legitimist }
+				add_modifier = { name = mt_fra_legitimist_secular_setback days = long_modifier_time }
+			}
+		}
+	}
+}
+
+# Country scope. Elder Branch outcome after the player takes Alliance with the Legitimists.
+mt_fra_legitimist_alliance_reward_effect = {
+	custom_tooltip = legitimist_progress_increase_40_tt
+	je:je_divided_monarchists ?= { add_progress = { name = divided_monarchists_legitimist_progress_bar value = 40 } }
+	create_character = {
+		is_agitator = yes
+		culture = cu:french
+		religion = rel:catholic
+		interest_group = ig:ig_petty_bourgeoisie
+		ideology = ideology_legitimist
+		traits = { charismatic persistent }
+	}
+	create_character = {
+		is_agitator = yes
+		culture = cu:french
+		religion = rel:catholic
+		interest_group = ig:ig_landowners
+		ideology = ideology_legitimist
+		traits = { experienced_political_operator persistent }
+	}
+}
+
+# Country scope. Elder Branch outcome after the player takes Isolate the Legitimists.
+mt_fra_legitimist_isolation_reward_effect = {
+	every_scope_character = {
+		limit = { has_ideology = ideology:ideology_legitimist }
+		set_ideology = ideology:ideology_royalist
+		add_modifier = { name = mt_fra_legitimist_royalist_discredit }
+	}
+}

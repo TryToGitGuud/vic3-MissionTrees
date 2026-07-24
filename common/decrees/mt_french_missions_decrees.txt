@@ -1,0 +1,52 @@
+# Future France state decrees. Mission or event content will set the named unlock variables.
+
+decree_mt_fra_prefectural_administration = {
+	texture = "gfx/interface/icons/decree/decree_road_maintenance.dds"
+
+	country_trigger = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_prefectural_administration_decree
+	}
+	state_trigger = { always = yes }
+
+	# Placeholder bonus, to be rebalanced with the final mission reward.
+	modifier = {
+		state_construction_mult = 0.05
+	}
+	cost = 100
+	ai_weight = { value = 0 }
+}
+
+decree_mt_fra_civic_guard_patrols = {
+	texture = "gfx/interface/icons/decree/decree_violent_suppression.dds"
+
+	country_trigger = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_civic_guard_decree
+	}
+	state_trigger = { always = yes }
+
+	# Placeholder bonus, to be rebalanced with the final mission reward.
+	modifier = {
+		state_turmoil_effects_mult = -0.05
+	}
+	cost = 100
+	ai_weight = { value = 0 }
+}
+
+decree_mt_fra_departmental_survey = {
+	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"
+
+	country_trigger = {
+		c:FRA ?= THIS
+		has_variable = mt_fra_unlock_departmental_survey_decree
+	}
+	state_trigger = { always = yes }
+
+	# Placeholder bonus, to be rebalanced with the final mission reward.
+	modifier = {
+		state_infrastructure_from_population_add = 1
+	}
+	cost = 100
+	ai_weight = { value = 0 }
+}
